@@ -254,18 +254,38 @@ https://www.youtube.com/embed/xxxxx"></textarea>
     }
 
     function toggleTextarea(textarea, toggleBtn, copyBtn) {
-      const isHidden = textarea.classList.contains("hidden");
 
-      if (isHidden) {
-        textarea.classList.remove("hidden");
-        toggleBtn.innerText = "Thu gọn";
-        copyBtn.style.display = "inline-block";
-      } else {
-        textarea.classList.add("hidden");
-        toggleBtn.innerText = "Mở lại";
-        copyBtn.style.display = "none";
-      }
-    }
+  const isHidden = textarea.classList.contains("hidden");
+
+  if (isHidden) {
+
+    // MỞ LẠI
+    textarea.classList.remove("hidden");
+
+    toggleBtn.innerText = "Thu gọn";
+
+    // Hiện nút copy
+    copyBtn.style.display = "inline-block";
+
+    // Reset lại text nút copy
+    copyBtn.innerText = "Copy code";
+
+    // Bỏ trạng thái đã copy
+    copyBtn.classList.remove("copied");
+
+  } else {
+
+    // THU GỌN
+    textarea.classList.add("hidden");
+
+    toggleBtn.innerText = "Mở lại";
+
+    // Ẩn nút copy
+    copyBtn.style.display = "none";
+
+  }
+
+}
 
     function generateEmbedCodes() {
       const input = document.getElementById("inputLinks").value;
